@@ -121,7 +121,7 @@ module TaggableModel      # for inclusion into ActiveRecord::Base
     
     def tags_from_keywords
       if self.class.column_names.include?('keywords') && keys = read_attribute(:keywords)
-        self.attached_tags = Tag.from_list(keys)
+        self.attached_tags = Tag.from_list(keys) || []
       end
     end
     
